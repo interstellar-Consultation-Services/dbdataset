@@ -10,8 +10,8 @@ from [DrugBank](https://www.drugbank.ca) XML database using
 These datasets can be used easily as R dataframes to ease the drugs
 development research process that might use **DrugBank** database.
 
-However; it also can be used to heal Mahine learning in many fields such
-as:
+However; it also can be used to in Machine Learning in many sub-fields
+such as:
 
   - Natural Language Processing (NLP)
   - Web Scrapping
@@ -19,8 +19,8 @@ as:
 
 ### Installation
 
-As the package size exceedes CRAN limit it will be hosted on Github
-onnly right now. Hence it could be installed via the following command
+As the package size exceedes CRAN limit it will be hosted on Github only
+right now. Hence it could be installed via the following command
 
 ``` r
 devtools::install_github("Dainanahan/dbdataset")
@@ -32,18 +32,3 @@ following command
 ``` r
 library(dbdataset)
 ```
-
-### Package Version
-
-The package version will always be the same as the **DrugBank** database
-used
-
-### Naming Convention
-
-Each dataset is named after it positions in the below hierarchy, for
-example:
-
-  - *Drugs* -\> is the root and main dataset
-  - *Enzymes\_Drug* -\> is themain dataset *Drugs* related Enzymes.
-  - *Enzymes\_Pathway\_Drug* -\> is representing the *Enzymes* under the
-    *Pathway* under *Drug*

@@ -78,7 +78,7 @@
 <a href="#overview" class="anchor"></a>Overview</h2>
 <p><strong>dbdataset</strong> is a data package the contains 74 different dataset parsed from <a href="https://www.drugbank.ca">DrugBank</a> XML database using <a href="https://dainanahan.github.io/dbparser/">dbparser</a> r package.</p>
 <p>These datasets can be used easily as R dataframes to ease the drugs development research process that might use <strong>DrugBank</strong> database.</p>
-<p>However; it also can be used to heal Mahine learning in many fields such as:</p>
+<p>However; it also can be used to in Machine Learning in many sub-fields such as:</p>
 <ul>
 <li>Natural Language Processing (NLP)</li>
 <li>Web Scrapping</li>
@@ -87,29 +87,10 @@
 <div id="installation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h3>
-<p>As the package size exceedes CRAN limit it will be hosted on Github onnly right now. Hence it could be installed via the following command</p>
+<p>As the package size exceedes CRAN limit it will be hosted on Github only right now. Hence it could be installed via the following command</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"Dainanahan/dbdataset"</span>)</a></code></pre></div>
 <p>Then the datasets will be available after the following running the following command</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dbdataset)</a></code></pre></div>
-</div>
-<div id="package-version" class="section level3">
-<h3 class="hasAnchor">
-<a href="#package-version" class="anchor"></a>Package Version</h3>
-<p>The package version will always be the same as the <strong>DrugBank</strong> database used</p>
-</div>
-<div id="naming-convention" class="section level3">
-<h3 class="hasAnchor">
-<a href="#naming-convention" class="anchor"></a>Naming Convention</h3>
-<p>Each dataset is named after it positions in the below hierarchy, for example:</p>
-<ul>
-<li>
-<em>Drugs</em> -&gt; is the root and main dataset</li>
-<li>
-<em>Enzymes_Drug</em> -&gt; is themain dataset <em>Drugs</em> related Enzymes.</li>
-<li>
-<em>Enzymes_Pathway_Drug</em> -&gt; is representing the <em>Enzymes</em> under the <em>Pathway</em> under <em>Drug</em>
-</li>
-</ul>
 </div>
 </div>
   </div>
