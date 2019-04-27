@@ -8,4 +8,4 @@
 #' @format 74 different dataframes contianing different drugs
 #' retlated data
 #' @source \url{https://www.drugbank.ca}
-"dbdataset"
+NULL
