@@ -47,9 +47,3 @@ example:
   - *Enzymes\_Drug* -\> is themain dataset *Drugs* related Enzymes.
   - *Enzymes\_Pathway\_Drug* -\> is representing the *Enzymes* under the
     *Pathway* under *Drug*
-
-## Dataset Hierarchy
-
-The following illustrates how the datasets are related to each other:
-
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
