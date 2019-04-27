@@ -15,3 +15,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/Dainanahan/dbdataset
 BugReports: https://github.com/Dainanahan/dbdataset/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
