@@ -65,7 +65,7 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+      </header><script src="dbdataset_files/htmlwidgets-1.3/htmlwidgets.js"></script><script src="dbdataset_files/d3-4.5.0/d3.min.js"></script><script src="dbdataset_files/radialNetwork-binding-0.4/radialNetwork.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>dbdataset</h1>
@@ -105,13 +105,24 @@
 <div id="naming-convention" class="section level3">
 <h3 class="hasAnchor">
 <a href="#naming-convention" class="anchor"></a>Naming Convention</h3>
-<p>Each dataset is named after it positions in the below hierarchy, for example: - Drugs –&gt; is the root and main dataset - Enzymes_Drug –&gt; is themain dataset <em>Drugs</em> related Enzymes. - Enzymes_Pathway_Drug –&gt; is representing the <em>Enzymes</em> under the <em>Pathway</em> under <em>Drug</em></p>
+<p>Each dataset is named after it positions in the below hierarchy, for example:</p>
+<ul>
+<li>
+<em>Drugs</em> -&gt; is the root and main dataset</li>
+<li>
+<em>Enzymes_Drug</em> -&gt; is themain dataset <em>Drugs</em> related Enzymes.</li>
+<li>
+<em>Enzymes_Pathway_Drug</em> -&gt; is representing the <em>Enzymes</em> under the <em>Pathway</em> under <em>Drug</em>
+</li>
+</ul>
 </div>
 </div>
 <div id="dataset-hierarchy" class="section level2">
 <h2 class="hasAnchor">
 <a href="#dataset-hierarchy" class="anchor"></a>Dataset Hierarchy</h2>
-<p>The following illustrates how the datasets are related to each other: <img src="../../../DS%20Projects/dbdataset/vignettes/DrugBankDB.jpeg"></p>
+<p>The following illustrates how the datasets are related to each other: </p>
+<div id="htmlwidget-f4cb34417da8fa689544" style="width:960px;height:960px;" class="radialNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f4cb34417da8fa689544">{"x":{"root":{"name":"Drugs","children":[{"name":"Groups"},{"name":"Names"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"}]},{"name":"Classification"},{"name":"Synonyms"},{"name":"Products"},{"name":"Mixtures"},{"name":"Packagers"},{"name":"Manufacturers"},{"name":"Prices"},{"name":"Categories"},{"name":"Affected Organisms"},{"name":"Dosages"},{"name":"ATC"},{"name":"AHFS"},{"name":"PDB Entries"},{"name":"Patents"},{"name":"international_brands"},{"name":"salts"},{"name":"Interactions","children":[{"name":"Food"},{"name":"Drugs"}]},{"name":"Sequences"},{"name":"Experimental Properties"},{"name":"External Identifiers"},{"name":"External Links"},{"name":"Pathways","children":[{"name":"Drugs"},{"name":"Enzymes"}]},{"name":"Reactions","children":[{"name":"Reactions Enzymes"}]},{"name":"SNP Effects"},{"name":"SNP Adverse DRs"},{"name":"Targets","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]},{"name":"Enzymes","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]},{"name":"Carriers","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]},{"name":"Transporters","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"#fff","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
 </div>
   </div>
 
