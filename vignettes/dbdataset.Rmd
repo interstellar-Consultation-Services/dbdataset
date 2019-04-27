@@ -28,12 +28,12 @@ However; it also can be used to heal Mahine learning in many fields such as:
 ### Installation
 As the package size exceedes CRAN limit it will be hosted on Github onnly right now. Hence it could be installed via the following command
 
-```{r}
+```{r eval=FALSE}
 devtools::install_github("Dainanahan/dbdataset")
 ```
 
 Then the datasets will be available after the following running the following command
-```{r}
+```{r eval=FALSE}
 library(dbdataset)
 ```
 
