@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 ^data-raw$
 ^docs$
+^README\.Rmd$
