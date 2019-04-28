@@ -3,14 +3,17 @@
 
 ## Overview
 
-**dbdataset** is a data package the contains 74 different dataset parsed
-from [DrugBank](https://www.drugbank.ca) XML database using
-[dbparser](https://dainanahan.github.io/dbparser/) r package.
+**dbdataset** is a data package containing 74 different data frames that
+constitute the dataset parsed from [DrugBank](https://www.drugbank.ca).
+The dataset was extracted from the DrugBank XML database via
+[dbparser](https://dainanahan.github.io/dbparser/) R package.
 
-These datasets can be used easily as R dataframes to ease the drugs
-development research process that might use **DrugBank** database.
+The dataset can be used for conveniently exploring and analyzing the
+contents of the DrugBank database. The dataset is also intended to
+assist in drug discovery endeavors that plan to make use of the
+**DrugBank** database.
 
-However; it also can be used to in Machine Learning in many sub-fields
+Moreover; it also can be used to in Machine Learning in many sub-fields
 such as:
 
   - Natural Language Processing (NLP)
@@ -19,15 +22,15 @@ such as:
 
 ### Installation
 
-As the package size exceedes CRAN limit it will be hosted on Github only
-right now. Hence it could be installed via the following command
+As the package size exceeds the limit set by CRAN, it will be hosted on
+Github only for now. Hence, it could be installed via the following
+command.
 
 ``` r
 devtools::install_github("Dainanahan/dbdataset")
 ```
 
-Then the datasets will be available after the following running the
-following command
+The datasets will then be available after running the following command:
 
 ``` r
 library(dbdataset)
