@@ -38,6 +38,21 @@ The datasets will then be available after running the following command:
 library(dbdataset)
 ```
 
+Then the pakages will be available to be used as regular *R* object
+
+```{r}
+head(dbdataset::Articles_Drug)
+```
+
+```{r}
+head(dbdataset::Drugs)
+```
+
+```{r}
+head(dbdataset::Drugs_Pathway_Drug)
+```
+The 74 object names are listed in the next section and can be used immediately as any regular R dataframe.
+
 ### Package Version
 The package version will always be the same as the **DrugBank** database used.
 
