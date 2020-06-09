@@ -35,3 +35,8 @@ The datasets will then be available after running the following command:
 ``` r
 library(dbdataset)
 ```
+
+## Used Versions
+
+  - dbparser: 1.1.2
+  - Drugbank: 5.1.6
