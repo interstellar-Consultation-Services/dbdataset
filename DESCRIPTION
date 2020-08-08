@@ -1,7 +1,7 @@
 Package: dbdataset
 Type: Package
 Title: DrugBank parsed datasets in R data format
-Version: 5.1.6
+Version: 1.2.0
 Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")))
