@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ## Overview
-**dbdataset** is a data package containing 75 different data frames that constitute the dataset parsed from  [DrugBank](https://www.drugbank.ca). The dataset was extracted from the DrugBank XML database via [dbparser](https://dainanahan.github.io/dbparser/) R package.
+**dbdataset** is a data package containing different tibbles that constitute the dataset parsed from  [DrugBank](https://www.drugbank.ca). The dataset was extracted from the DrugBank XML database via [dbparser](https://dainanahan.github.io/dbparser/) R package.
 
 The dataset can be used for conveniently exploring and analyzing the contents of the DrugBank database. The dataset is also intended to assist in drug discovery endeavors that plan to make use of the **DrugBank** database.
 
@@ -82,124 +82,106 @@ library(networkD3)
 # Main node
 build_drug_bank_tree <- function() {
   drug <- Node$new("Drugs")
-  
-  groups <- drug$AddChild("Groups")
-  
-  names <- drug$AddChild("Names")
-  
+  drug$AddChild("Groups")
+  drug$AddChild("Pharmacology")
   references <- drug$AddChild("References")
-  articles <- references$AddChild("Articles")
-  books <- references$AddChild("Books")
-  links <- references$AddChild("Links")
   
-  classification <- drug$AddChild("Classification")
-  calculated_properties <- drug$AddChild("Calculated Properties")
-  synonyms <- drug$AddChild("Synonyms")
-  products <- drug$AddChild("Products")
-  mixtures <- drug$AddChild("Mixtures")
-  packagers <- drug$AddChild("Packagers")
-  manufacturers <- drug$AddChild("Manufacturers")
-  prices <- drug$AddChild("Prices")
-  categories <- drug$AddChild("Categories")
-  affected_organisms <- drug$AddChild("Affected Organisms")
-  dosages <- drug$AddChild("Dosages")
-  atc <- drug$AddChild("ATC")
-  ahfs <- drug$AddChild("AHFS")
-  pdb_entries <- drug$AddChild("PDB Entries")
-  patents <- drug$AddChild("Patents")
-  pdb_entries <- drug$AddChild("PDB Entries")
-  international_brands  <- drug$AddChild("international_brands")
-  salts  <- drug$AddChild("salts")
+  references$AddChild("Articles")
+  references$AddChild("Books")
+  references$AddChild("Links")
+  references$AddChild("Attachments")
+  
+  drug$AddChild("Classification")
+  drug$AddChild("Calculated Properties")
+  drug$AddChild("Synonyms")
+  drug$AddChild("Products")
+  drug$AddChild("Mixtures")
+  drug$AddChild("Packagers")
+  drug$AddChild("Manufacturers")
+  drug$AddChild("Prices")
+  drug$AddChild("Categories")
+  drug$AddChild("Affected Organisms")
+  drug$AddChild("Dosages")
+  drug$AddChild("ATC")
+  drug$AddChild("AHFS")
+  drug$AddChild("PDB Entries")
+  drug$AddChild("Patents")
+  drug$AddChild("PDB Entries")
+  drug$AddChild("international_brands")
+  drug$AddChild("salts")
   
   interactions <- drug$AddChild("Interactions")
-  food <- interactions$AddChild("Food")
-  drugs <- interactions$AddChild("Drugs")
+  interactions$AddChild("Food")
+  interactions$AddChild("Drugs")
   
-  sequences <- drug$AddChild("Sequences")
-  experimental_properties <-
-    drug$AddChild("Experimental Properties")
-  external_identifiers <- drug$AddChild("External Identifiers")
-  external_links <- drug$AddChild("External Links")
+  drug$AddChild("Sequences")
+  drug$AddChild("Experimental Properties")
+  drug$AddChild("External Identifiers")
+  drug$AddChild("External Links")
   
   pathways <- drug$AddChild("Pathways")
-  pathway_drugs <- pathways$AddChild("Drugs")
-  pathway_enzymes <- pathways$AddChild("Enzymes")
+  pathways$AddChild("Drugs")
+  pathways$AddChild("Enzymes")
   
   reactions <- drug$AddChild("Reactions")
-  reactions_enzymes <- reactions$AddChild("Reactions Enzymes")
+  reactions$AddChild("Reactions Enzymes")
   
-  snp_effects <- drug$AddChild("SNP Effects")
-  snp_adverse_drug_reactions <- drug$AddChild("SNP Adverse DRs")
+  drug$AddChild("SNP Effects")
+  drug$AddChild("SNP Adverse DRs")
   
   targets <- drug$AddChild("Targets")
-  targets_actions <- targets$AddChild("Actions")
+  targets$AddChild("Actions")
+  
   targets_references <- targets$AddChild("References")
-  targets_references_articles <-
-    targets_references$AddChild("Articles")
-  targets_references_books <- targets_references$AddChild("Books")
-  targets_references_links <- targets_references$AddChild("Links")
+  targets_references$AddChild("Articles")
+  targets_references$AddChild("Books")
+  targets_references$AddChild("Links")
+  targets_references$AddChild("Attachments")
+  
   targets_polypeptides <- targets$AddChild("Polypeptides")
-  targets_polypeptides_external_identifiers <-
-    targets_polypeptides$AddChild("External Identifiers")
-  targets_polypeptides_go_classifiers <-
-    targets_polypeptides$AddChild("GO Classifiers")
-  targets_polypeptides_pfams <-
-    targets_polypeptides$AddChild("PFAMS")
-  targets_polypeptides_synonyms <-
-    targets_polypeptides$AddChild("Synonyms")
+  targets_polypeptides$AddChild("External Identifiers")
+  targets_polypeptides$AddChild("GO Classifiers")
+  targets_polypeptides$AddChild("PFAMS")
+  targets_polypeptides$AddChild("Synonyms")
   
   enzymes <- drug$AddChild("Enzymes")
-  enzymes_actions <- enzymes$AddChild("Actions")
+  enzymes$AddChild("Actions")
   enzymes_references <- enzymes$AddChild("References")
-  enzymes_references_articles <-
-    enzymes_references$AddChild("Articles")
-  enzymes_references_books <- enzymes_references$AddChild("Books")
-  enzymes_references_links <- enzymes_references$AddChild("Links")
+  enzymes_references$AddChild("Articles")
+  enzymes_references$AddChild("Books")
+  enzymes_references$AddChild("Links")
+  enzymes_references$AddChild("Attachments")
   enzymes_polypeptides <- enzymes$AddChild("Polypeptides")
-  enzymes_polypeptides_external_identifiers <-
-    enzymes_polypeptides$AddChild("External Identifiers")
-  enzymes_polypeptides_go_classifiers <-
-    enzymes_polypeptides$AddChild("GO Classifiers")
-  enzymes_polypeptides_pfams <-
-    enzymes_polypeptides$AddChild("PFAMS")
-  enzymes_polypeptides_synonyms <-
-    enzymes_polypeptides$AddChild("Synonyms")
+  enzymes_polypeptides$AddChild("External Identifiers")
+  enzymes_polypeptides$AddChild("GO Classifiers")
+  enzymes_polypeptides$AddChild("PFAMS")
+  enzymes_polypeptides$AddChild("Synonyms")
   
   carriers <- drug$AddChild("Carriers")
-  carriers_actions <- carriers$AddChild("Actions")
+  carriers$AddChild("Actions")
   carriers_references <- carriers$AddChild("References")
-  carriers_references_articles <-
-    carriers_references$AddChild("Articles")
-  carriers_references_books <- carriers_references$AddChild("Books")
-  carriers_references_links <- carriers_references$AddChild("Links")
+  carriers_references$AddChild("Articles")
+  carriers_references$AddChild("Books")
+  carriers_references$AddChild("Links")
+  carriers_references$AddChild("Attachments")
   carriers_polypeptides <- carriers$AddChild("Polypeptides")
-  carriers_polypeptides_external_identifiers <-
-    carriers_polypeptides$AddChild("External Identifiers")
-  carriers_polypeptides_go_classifiers <-
-    carriers_polypeptides$AddChild("GO Classifiers")
-  carriers_polypeptides_pfams <-
-    carriers_polypeptides$AddChild("PFAMS")
-  carriers_polypeptides_synonyms <-
-    carriers_polypeptides$AddChild("Synonyms")
+  carriers_polypeptides$AddChild("External Identifiers")
+  carriers_polypeptides$AddChild("GO Classifiers")
+  carriers_polypeptides$AddChild("PFAMS")
+  carriers_polypeptides$AddChild("Synonyms")
   
   transporters <- drug$AddChild("Transporters")
-  transporters_actions <- transporters$AddChild("Actions")
+  transporters$AddChild("Actions")
   transporters_references <- transporters$AddChild("References")
-  transporters_references_articles <-
-    transporters_references$AddChild("Articles")
-  transporters_references_books <-
-    transporters_references$AddChild("Books")
-  transporters_references_links <-
-    transporters_references$AddChild("Links")
+  transporters_references$AddChild("Articles")
+  transporters_references$AddChild("Books")
+  transporters_references$AddChild("Links")
+  transporters_references$AddChild("Attachments")
   transporters_polypeptides <- transporters$AddChild("Polypeptides")
-  transporters_polypeptides_external_identifiers <-
-    transporters_polypeptides$AddChild("External Identifiers")
-  transporters_polypeptides_go_classifiers <-
-    transporters_polypeptides$AddChild("GO Classifiers")
-  transporters_polypeptides_pfams <-
-    transporters_polypeptides$AddChild("PFAMS")
-  transporters_polypeptides_synonyms <-
-    transporters_polypeptides$AddChild("Synonyms")
+  transporters_polypeptides$AddChild("External Identifiers")
+  transporters_polypeptides$AddChild("GO Classifiers")
+  transporters_polypeptides$AddChild("PFAMS")
+  transporters_polypeptides$AddChild("Synonyms")
   
   return(drug)
 }

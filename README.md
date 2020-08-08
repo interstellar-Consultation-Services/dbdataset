@@ -3,7 +3,7 @@
 
 ## Overview
 
-**dbdataset** is a data package containing 75 different data frames that
+**dbdataset** is a data package containing different tibbles that
 constitute the dataset parsed from [DrugBank](https://www.drugbank.ca).
 The dataset was extracted from the DrugBank XML database via
 [dbparser](https://dainanahan.github.io/dbparser/) R package.
@@ -38,5 +38,5 @@ library(dbdataset)
 
 ## Used Versions
 
-  - dbparser: 1.1.2
-  - Drugbank: 5.1.6
+  - dbparser: 1.2.0
+  - Drugbank: 5.1.7
