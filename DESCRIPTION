@@ -13,10 +13,10 @@ Description: The package provide 74 different datasets parsed from DrugBank data
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/Dainanahan/dbdataset
-BugReports: https://github.com/Dainanahan/dbdataset/issues
+URL: https://github.com/MohammedFCIS/dbdataset
+BugReports: https://github.com/MohammedFCIS/dbdataset/issues
 Suggests: 
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
