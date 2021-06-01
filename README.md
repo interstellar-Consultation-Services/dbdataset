@@ -27,7 +27,7 @@ Github only for now. Hence, it could be installed via the following
 command.
 
 ``` r
-devtools::install_github("MohammedFCIS/dbdataset")
+devtools::install_github("interstellar-Consultation-Services/dbdataset")
 ```
 
 The datasets will then be available after running the following command:

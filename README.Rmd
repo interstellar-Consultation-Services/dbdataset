@@ -27,7 +27,7 @@ Moreover; it also can be used to in Machine Learning in many sub-fields such as:
 As the package size exceeds the limit set by CRAN, it will be hosted on Github only for now. Hence, it could be installed via the following command.
 
 ```{r eval=FALSE}
-devtools::install_github("MohammedFCIS/dbdataset")
+devtools::install_github("interstellar-Consultation-Services/dbdataset")
 ```
 
 The datasets will then be available after running the following command:
