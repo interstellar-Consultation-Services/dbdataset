@@ -16,9 +16,9 @@ assist in drug discovery endeavors that plan to make use of the
 Moreover; it also can be used to in Machine Learning in many sub-fields
 such as:
 
-  - Natural Language Processing (NLP)
-  - Web Scrapping
-  - Visualization
+-   Natural Language Processing (NLP)
+-   Web Scrapping
+-   Visualization
 
 ### Installation
 
@@ -38,5 +38,5 @@ library(dbdataset)
 
 ## Used Versions
 
-  - dbparser: 1.2.0
-  - Drugbank: 5.1.7
+-   dbparser: 1.2.0
+-   Drugbank: 5.1.8
