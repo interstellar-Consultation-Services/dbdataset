@@ -1,7 +1,7 @@
 Package: dbdataset
 Type: Package
 Title: DrugBank parsed datasets in R data format
-Version: 5.1.8
+Version: 5.1.10
 Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")))
@@ -19,4 +19,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.3
