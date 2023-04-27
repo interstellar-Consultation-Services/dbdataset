@@ -8,13 +8,13 @@ Authors@R:
 Depends:
     R (>= 3.1)
 Maintainer: Mohammed Ali <moh_fcis@yahoo.com>
-Description: The package provide 74 different datasets parsed from DrugBank database using dbparser package. Package version
+Description: The package provide dvobject that contain parsed DrugBank database using dbparser package. Package version
     indicates the DrugBank dataset used in the package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/MohammedFCIS/dbdataset
-BugReports: https://github.com/MohammedFCIS/dbdataset/issues
+URL: https://github.com/interstellar-consultation-services/dbdataset
+BugReports: https://github.com/interstellar-consultation-services/dbdataset/issues
 Suggests: 
     knitr,
     rmarkdown

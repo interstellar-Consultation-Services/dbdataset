@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbdataset</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">5.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">5.1.10</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/dbdataset.html">Get started</a>
 </li>
@@ -52,8 +48,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/MohammedFCIS/dbdataset/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/interstellar-consultation-services/dbdataset/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -67,159 +63,168 @@
 
       
 
-      </header><script src="dbdataset_files/htmlwidgets-1.5.1/htmlwidgets.js"></script><script src="dbdataset_files/jquery-1.12.4/jquery.min.js"></script><link href="dbdataset_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="dbdataset_files/datatables-binding-0.13/datatables.js"></script><link href="dbdataset_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="dbdataset_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="dbdataset_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="dbdataset_files/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet">
-<script src="dbdataset_files/crosstalk-1.1.0.1/js/crosstalk.min.js"></script><script src="dbdataset_files/d3-4.5.0/d3.min.js"></script><script src="dbdataset_files/radialNetwork-binding-0.4/radialNetwork.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>dbdataset</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/MohammedFCIS/dbdataset/blob/master/vignettes/dbdataset.Rmd"><code>vignettes/dbdataset.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/interstellar-consultation-services/dbdataset/blob/HEAD/vignettes/dbdataset.Rmd" class="external-link"><code>vignettes/dbdataset.Rmd</code></a></small>
       <div class="hidden name"><code>dbdataset.Rmd</code></div>
 
     </div>
 
     
     
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
-<p><strong>dbdataset</strong> is a data package containing different tibbles that constitute the dataset parsed from <a href="https://www.drugbank.ca">DrugBank</a>. The dataset was extracted from the DrugBank XML database via <a href="https://dainanahan.github.io/dbparser/">dbparser</a> R package.</p>
-<p>The dataset can be used for conveniently exploring and analyzing the contents of the DrugBank database. The dataset is also intended to assist in drug discovery endeavors that plan to make use of the <strong>DrugBank</strong> database.</p>
-<p>Moreover; it also can be used to in Machine Learning in many sub-fields such as:</p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p><strong>dbdataset</strong> is a data package containing
+<strong>dvobject</strong> R object. <strong>dvobject</strong>contains
+lists of different dataframes of the parsed <a href="https://www.drugbank.ca" class="external-link">DrugBank</a> database.
+<strong>dvobject</strong> has been built using <a href="https://docs.ropensci.org/dbparser" class="external-link">dbparser</a> R package.</p>
+<p><strong>dvobject</strong> can be used for conveniently exploring and
+analyzing the contents of the DrugBank database.
+<strong>dvobject</strong> is also intended to assist in drug discovery
+endeavors that plan to make use of the <strong>DrugBank</strong>
+database.</p>
+<p>Moreover; it also can be used to in Machine Learning in many
+sub-fields such as:</p>
 <ul>
 <li>Natural Language Processing (NLP)</li>
 <li>Web Scrapping</li>
 <li>Visualization</li>
 </ul>
-<div id="installation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h3>
-<p>As the package size exceeds the limit set by CRAN, it will be hosted on Github only for now. Hence, it could be installed via the following command.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"MohammedFCIS/dbdataset"</span>)</pre></body></html></div>
-<p>The datasets will then be available after running the following command:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dbdataset</span>)</pre></body></html></div>
-<p>Then the pakages will be available to be used as regular <em>R</em> object</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw pkg">dbdataset</span><span class="kw ns">::</span><span class="no"><a href="../reference/articles.html">Articles_Drug</a></span>)
-<span class="co">#&gt;   ref-id pubmed-id</span>
-<span class="co">#&gt; 1     A1  16244762</span>
-<span class="co">#&gt; 2     A2  16690967</span>
-<span class="co">#&gt; 3     A3  16241940</span>
-<span class="co">#&gt; 4     A4  10480573</span>
-<span class="co">#&gt; 5     A5  10601294</span>
-<span class="co">#&gt; 6     A6  10628369</span>
-<span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       citation</span>
-<span class="co">#&gt; 1                                                                                                                                                                                                                                                                                                                                                                            Smythe MA, Stephens JL, Koerber JM, Mattson JC: A comparison of lepirudin and argatroban outcomes. Clin Appl Thromb Hemost. 2005 Oct;11(4):371-4.</span>
-<span class="co">#&gt; 2 Tardy B, Lecompte T, Boelhen F, Tardy-Poncet B, Elalamy I, Morange P, Gruel Y, Wolf M, Francois D, Racadot E, Camarasa P, Blouch MT, Nguyen F, Doubine S, Dutrillaux F, Alhenc-Gelas M, Martin-Toutain I, Bauters A, Ffrench P, de Maistre E, Grunebaum L, Mouton C, Huisse MG, Gouault-Heilmann M, Lucke V: Predictive factors for thrombosis and major bleeding in an observational study in 181 patients with heparin-induced thrombocytopenia treated with lepirudin. Blood. 2006 Sep 1;108(5):1492-6. Epub 2006 May 11.</span>
-<span class="co">#&gt; 3                                                                                                                                                                                                                                                                      Lubenow N, Eichler P, Lietz T, Greinacher A: Lepirudin in patients with heparin-induced thrombocytopenia - results of the third prospective study (HAT-3) and a combined analysis of HAT-1, HAT-2, and HAT-3. J Thromb Haemost. 2005 Nov;3(11):2428-36.</span>
-<span class="co">#&gt; 4                                                                                                                                                                                                                                                                                Hosokawa N, Yamamoto S, Uehara Y, Hori M, Tsuchiya KS: Effect of thiazinotrienomycin B, an ansamycin antibiotic, on the function of epidermal growth factor receptor in human stomach tumor cells. J Antibiot (Tokyo). 1999 May;52(5):485-90.</span>
-<span class="co">#&gt; 5                                                                                                                                                                                                                                                                                                                   Wakita H, Takigawa M: Activation of epidermal growth factor receptor promotes late terminal differentiation of cell-matrix interaction-disrupted keratinocytes. J Biol Chem. 1999 Dec 24;274(52):37285-91.</span>
-<span class="co">#&gt; 6                                                                                                                                                                                                                                                                                Suwa T, Ueda M, Jinno H, Ozawa S, Kitagawa Y, Ando N, Kitajima M: Epidermal growth factor receptor-dependent cytotoxic effect of anti-EGFR antibody-ribonuclease conjugate on human cancer cells. Anticancer Res. 1999 Sep-Oct;19(5B):4161-5.</span>
-<span class="co">#&gt;   parent_key</span>
-<span class="co">#&gt; 1    DB00001</span>
-<span class="co">#&gt; 2    DB00001</span>
-<span class="co">#&gt; 3    DB00001</span>
-<span class="co">#&gt; 4    DB00002</span>
-<span class="co">#&gt; 5    DB00002</span>
-<span class="co">#&gt; 6    DB00002</span></pre></body></html></div>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw pkg">dbdataset</span><span class="kw ns">::</span><span class="no"><a href="../reference/Drugs.html">Drugs</a></span>)
-<span class="co">#&gt;   primary_key                           other_keys           type    created</span>
-<span class="co">#&gt; 1     DB00001                   BTD00024;BIOD00024        biotech 2005-06-13</span>
-<span class="co">#&gt; 2     DB00002                   BTD00071;BIOD00071        biotech 2005-06-13</span>
-<span class="co">#&gt; 3     DB00003                   BTD00001;BIOD00001        biotech 2005-06-13</span>
-<span class="co">#&gt; 4     DB00004                   BTD00084;BIOD00084        biotech 2005-06-13</span>
-<span class="co">#&gt; 5     DB00005                   BTD00052;BIOD00052        biotech 2005-06-13</span>
-<span class="co">#&gt; 6     DB00006 BTD00076;EXPT03302;BIOD00076;DB02351 small molecule 2005-06-13</span>
-<span class="co">#&gt;      updated                name</span>
-<span class="co">#&gt; 1 2020-06-12           Lepirudin</span>
-<span class="co">#&gt; 2 2020-07-01           Cetuximab</span>
-<span class="co">#&gt; 3 2020-07-01        Dornase alfa</span>
-<span class="co">#&gt; 4 2020-06-12 Denileukin diftitox</span>
-<span class="co">#&gt; 5 2020-07-01          Etanercept</span>
-<span class="co">#&gt; 6 2020-07-01         Bivalirudin</span>
-<span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      description</span>
-<span class="co">#&gt; 1                                                                                                                                                                                                                                                                                                                                                                                                                               Lepirudin is identical to natural hirudin except for substitution of leucine for isoleucine at the N-terminal end of the molecule and the absence of a sulfate group on the tyrosine at position 63. It is produced via yeast cells. Bayer ceased the production of lepirudin (Refludan) effective May 31, 2012.</span>
-<span class="co">#&gt; 2                                                                                                                                                                                                                                                           Cetuximab is an epidermal growth factor receptor binding FAB. Cetuximab is composed of the Fv (variable; antigen-binding) regions of the 225 murine EGFr monoclonal antibody specific for the N-terminal portion of human EGFr with human IgG1 heavy and kappa light chain constant (framework) regions. Cetuximab is marketed under the brand Erbitux® by Eli Lilly and Company. In the United States, a regimen of cetuximab costs approximately $30,790 for an eight-week course.</span>
-<span class="co">#&gt; 3 Dornase alfa is a biosynthetic form of human deoxyribunuclease I (DNase I) enzyme. It is produced in genetically modified Chinese hamster ovary (CHO) cells using recombinant DNA technology. The 260-amino acid sequence of dornase alfa is identical to the endogenous human enzyme. Dornase alfa cleaves extracellular DNA to 5´-phosphodinucleotide and 5´-phosphooligonucleotide end products without affecting intracellular DNA. In individuals with cystic fibrosis, extracellular DNA, which is an extremely viscous anion, is released by degenerating leukocytes that accumulate during inflammatory responses to infections. Enzymatic breakdown of this extracellular DNA appears to reduce sputum viscosity and viscoelasticity.</span>
-<span class="co">#&gt; 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 A recombinant DNA-derived cytotoxic protein composed of the amino acid sequences for diphtheria toxin fragments A and B (Met 1-Thr 387)-His followed by the sequences for interleukin-2 (IL-2; Ala 1-Thr 133). It is produced in an E. coli expression system.</span>
-<span class="co">#&gt; 5                                                                                                                                                                                                                                                                  Dimeric fusion protein consisting of the extracellular ligand-binding portion of the human 75 kilodalton (p75) tumor necrosis factor receptor (TNFR) linked to the Fc portion of human IgG1. The Fc component of etanercept contains the CH2 domain, the CH3 domain and hinge region, but not the CH1 domain of IgG1. Etanercept is produced by recombinant DNA technology in a Chinese hamster ovary (CHO) mammalian cell expression system. It consists of 934 amino acids.</span>
-<span class="co">#&gt; 6                                                                                                                                                                                                                                                                                     Bivalirudin is a synthetic 20 residue peptide (thrombin inhibitor) which reversibly inhibits thrombin. Once bound to the active site, thrombin cannot activate fibrinogen into fibrin, the crucial step in the formation of thrombus. It is administered intravenously. Because it can cause blood stagnation, it is important to monitor changes in hematocrit, activated partial thromboplastin time, international normalized ratio and blood pressure.</span>
-<span class="co">#&gt;    cas_number       unii average_mass monoisotopic_mass  state</span>
-<span class="co">#&gt; 1 138068-37-8 Y43GF64R34           NA                NA liquid</span>
-<span class="co">#&gt; 2 205923-56-4 PQX0D8J21J           NA                NA liquid</span>
-<span class="co">#&gt; 3 143831-71-4 953A26OA1Y           NA                NA liquid</span>
-<span class="co">#&gt; 4 173146-27-5 25E79B5CTM           NA                NA liquid</span>
-<span class="co">#&gt; 5 185243-69-0 OP401G7OJC           NA                NA liquid</span>
-<span class="co">#&gt; 6 128270-60-0 TN9BEX005G     2180.285          2178.986  solid</span>
-<span class="co">#&gt;                                                                                                                                                                                                                synthesis_reference</span>
-<span class="co">#&gt; 1                                                                                                                                                                                                                             &lt;NA&gt;</span>
-<span class="co">#&gt; 2                                                                                                                                                                                                                             &lt;NA&gt;</span>
-<span class="co">#&gt; 3                                                                                                                                                                                                                             &lt;NA&gt;</span>
-<span class="co">#&gt; 4                                                                                                                                                                                                                             &lt;NA&gt;</span>
-<span class="co">#&gt; 5                                             Timothy D. Osslund, Christi L. Clogston, Shon Lee Crampton, Randal B. Bass, "Crystals of etanercept and methods of making thereof." U.S. Patent US07276477, issued October 02, 2007.</span>
-<span class="co">#&gt; 6 Avi Tovi, Chaim Eidelman, Shimon Shushan, Alon Hagi, Alexander Ivchenko, Gabriel-Marcus Butilca, Leah Bar-Oz, Tehila Gadi, Gil Zaovi, "Process for production of Bivalirudin." U.S. Patent US20070093423, issued April 26, 2007.</span>
-<span class="co">#&gt;                                                                 fda_label</span>
-<span class="co">#&gt; 1 //s3-us-west-2.amazonaws.com/drugbank/fda_labels/DB00001.pdf?1265924858</span>
-<span class="co">#&gt; 2 //s3-us-west-2.amazonaws.com/drugbank/fda_labels/DB00002.pdf?1265922813</span>
-<span class="co">#&gt; 3 //s3-us-west-2.amazonaws.com/drugbank/fda_labels/DB00003.pdf?1410715221</span>
-<span class="co">#&gt; 4 //s3-us-west-2.amazonaws.com/drugbank/fda_labels/DB00004.pdf?1265922800</span>
-<span class="co">#&gt; 5                                                                    &lt;NA&gt;</span>
-<span class="co">#&gt; 6 //s3-us-west-2.amazonaws.com/drugbank/fda_labels/DB00006.pdf?1265922803</span>
-<span class="co">#&gt;                                                                msds</span>
-<span class="co">#&gt; 1 //s3-us-west-2.amazonaws.com/drugbank/msds/DB00001.pdf?1368416245</span>
-<span class="co">#&gt; 2 //s3-us-west-2.amazonaws.com/drugbank/msds/DB00002.pdf?1458412933</span>
-<span class="co">#&gt; 3 //s3-us-west-2.amazonaws.com/drugbank/msds/DB00003.pdf?1410714694</span>
-<span class="co">#&gt; 4                                                              &lt;NA&gt;</span>
-<span class="co">#&gt; 5                                                              &lt;NA&gt;</span>
-<span class="co">#&gt; 6                                                              &lt;NA&gt;</span></pre></body></html></div>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw pkg">dbdataset</span><span class="kw ns">::</span><span class="no"><a href="../reference/Drugs_Pathway_Drug.html">Drugs_Pathway_Drug</a></span>)
-<span class="co">#&gt;   drugbank-id          name parent_key</span>
-<span class="co">#&gt; 1     DB00001     Lepirudin SMP0000278</span>
-<span class="co">#&gt; 2     DB01022 Phylloquinone SMP0000278</span>
-<span class="co">#&gt; 3     DB01373       Calcium SMP0000278</span>
-<span class="co">#&gt; 4     DB00002     Cetuximab SMP0000474</span>
-<span class="co">#&gt; 5     DB00006   Bivalirudin SMP0000277</span>
-<span class="co">#&gt; 6     DB01022 Phylloquinone SMP0000277</span></pre></body></html></div>
-<p>The 74 object names are listed in the next section and can be used immediately as any regular R dataframe.</p>
+<div class="section level3">
+<h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h3>
+<p>Although <strong>dvobject</strong> is much smaller that the unparsed
+DrugBank database size, it still exceeds the limit set by CRAN. So, it
+will be hosted on Github only for now. Hence, it could be installed via
+the following command.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"interstellar-Consultation-Services/dbdataset"</span><span class="op">)</span></span></code></pre></div>
+<p>The <strong>dvobject</strong> will then be available after running
+the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/MohammedFCIS/dbdataset" class="external-link">dbdataset</a></span><span class="op">)</span></span></code></pre></div>
+<p>Then a <strong>dvobject</strong> called <code>drugbank</code> will be
+available to be used as regular <em>R</em> object</p>
 </div>
-<div id="package-version" class="section level3">
-<h3 class="hasAnchor">
-<a href="#package-version" class="anchor"></a>Package Version</h3>
-<p>The package version will always be the same as the <strong>DrugBank</strong> database used.</p>
+<div class="section level3">
+<h3 id="dvobject-structure">dvobject Structure<a class="anchor" aria-label="anchor" href="#dvobject-structure"></a>
+</h3>
+<p>dvobject introduces a unified and compressed format of drugs data. It
+is an R list object that contains one or more of the following
+sub-lists:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "drugs"      "salts"      "products"   "references" "cett"</span></span></code></pre></div>
+<p>The following is the definition for each sub-list:</p>
+<div class="section level4">
+<h4 id="drugs">drugs<a class="anchor" aria-label="anchor" href="#drugs"></a>
+</h4>
+<p>A list of data.frames that contain drugs information (i.e. synonyms,
+classifications, …) and it is the only mandatory list</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">[[</span><span class="st">"drugs"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "general_information"     "drug_classification"    </span></span>
+<span><span class="co">#&gt;  [3] "synonyms"                "pharmacology"           </span></span>
+<span><span class="co">#&gt;  [5] "international_brands"    "mixtures"               </span></span>
+<span><span class="co">#&gt;  [7] "packagers"               "manufacturers"          </span></span>
+<span><span class="co">#&gt;  [9] "prices"                  "categories"             </span></span>
+<span><span class="co">#&gt; [11] "dosages"                 "atc_codes"              </span></span>
+<span><span class="co">#&gt; [13] "patents"                 "drug_interactions"      </span></span>
+<span><span class="co">#&gt; [15] "sequences"               "calculated_properties"  </span></span>
+<span><span class="co">#&gt; [17] "experimental_properties" "external_identifiers"   </span></span>
+<span><span class="co">#&gt; [19] "pathway"                 "reactions"              </span></span>
+<span><span class="co">#&gt; [21] "snp_effects"             "snp_adverse_reactions"  </span></span>
+<span><span class="co">#&gt; [23] "food_interactions"       "pdb_entries"            </span></span>
+<span><span class="co">#&gt; [25] "ahfs_codes"              "affected_organisms"     </span></span>
+<span><span class="co">#&gt; [27] "groups"                  "external_links"</span></span></code></pre></div>
 </div>
-<div id="naming-convention" class="section level3">
-<h3 class="hasAnchor">
-<a href="#naming-convention" class="anchor"></a>Naming Convention</h3>
-<p>Each data frame is named based on its position in DrugBank’s data hierarchy. For example:</p>
-<ul>
-<li>
-<code>Drugs</code>: is the master data frame at the root of the hierarchy that contains the list of all drugs in DrugBank.</li>
-<li>
-<code>Enzymes_Drug</code>: is the data frame containing the <em>enzymes</em> info pertaining to the drugs in the <code>Drugs</code> data frame. In other words,</li>
-<li>
-<code>Enzymes:</code> is a child of <code>Drug</code> in the hierarchy (i.e. Drug –&gt; Enzymes).</li>
-<li>
-<code>Enzymes_Pathway_Drug</code>: is the data frame containing the <em>enzymes</em> info pertaining to the <em>pathways</em> that the drugs in <code>Drugs</code> are involved in (i.e. Drug –&gt; Pathways –&gt; Enzymes).</li>
-</ul>
+<div class="section level4">
+<h4 id="drugs-1">drugs<a class="anchor" aria-label="anchor" href="#drugs-1"></a>
+</h4>
+<p>A data.frame contains drugs salts information</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">[[</span><span class="st">"salts"</span><span class="op">]</span><span class="op">]</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    drugbank-id                          name       unii  cas-number</span></span>
+<span><span class="co">#&gt; 1 DBSALT000105            Leuprolide acetate 37JNS02E7V  74381-53-6</span></span>
+<span><span class="co">#&gt; 2 DBSALT003182           Leuprolide mesylate 8E3C3C493W 944347-41-5</span></span>
+<span><span class="co">#&gt; 3 DBSALT001439            Sermorelin acetate 00IBG87IQW 114466-38-5</span></span>
+<span><span class="co">#&gt; 4 DBSALT000093             Goserelin acetate 6YUU2PV0U8 145781-92-6</span></span>
+<span><span class="co">#&gt; 5 DBSALT001733 Insulin human zinc suspension                       </span></span>
+<span><span class="co">#&gt;                      inchikey average-mass monoisotopic-mass parent_key</span></span>
+<span><span class="co">#&gt; 1 YFDMUNOZURYOCP-XNHQSDQCSA-N     1269.473    1268.666591578    DB00007</span></span>
+<span><span class="co">#&gt; 2 MBIDSOMXPLCOHS-XNHQSDQCSA-N      1305.52    1304.633577372    DB00007</span></span>
+<span><span class="co">#&gt; 3                                     &lt;NA&gt;              &lt;NA&gt;    DB00010</span></span>
+<span><span class="co">#&gt; 4 IKDXDQDKCZPQSZ-JHYYTBFNSA-N    1329.4624    1328.662568858    DB00014</span></span>
+<span><span class="co">#&gt; 5                                     &lt;NA&gt;              &lt;NA&gt;    DB00030</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="products">products<a class="anchor" aria-label="anchor" href="#products"></a>
+</h4>
+<p>A data.frame of commercially available drugs products in the
+world</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">[[</span><span class="st">"products"</span><span class="op">]</span><span class="op">]</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       name               labeller ndc-id ndc-product-code   dpd-id</span></span>
+<span><span class="co">#&gt; 1 Refludan                  Bayer               50419-150         </span></span>
+<span><span class="co">#&gt; 2 Refludan                  Bayer                         02240996</span></span>
+<span><span class="co">#&gt; 3 Refludan Celgene Europe Limited                                 </span></span>
+<span><span class="co">#&gt; 4 Refludan Celgene Europe Limited                                 </span></span>
+<span><span class="co">#&gt; 5 Refludan Celgene Europe Limited                                 </span></span>
+<span><span class="co">#&gt;   ema-product-code   ema-ma-number started-marketing-on ended-marketing-on</span></span>
+<span><span class="co">#&gt; 1                                            1998-03-06         2013-06-30</span></span>
+<span><span class="co">#&gt; 2                                            2000-01-31         2013-07-26</span></span>
+<span><span class="co">#&gt; 3  EMEA/H/C/000122 EU/1/97/035/001           2016-09-08         2012-07-27</span></span>
+<span><span class="co">#&gt; 4  EMEA/H/C/000122 EU/1/97/035/002           2016-09-08         2012-07-27</span></span>
+<span><span class="co">#&gt; 5  EMEA/H/C/000122 EU/1/97/035/003           2016-09-08         2012-07-27</span></span>
+<span><span class="co">#&gt;                        dosage-form     strength       route</span></span>
+<span><span class="co">#&gt; 1                           Powder    50 mg/1mL Intravenous</span></span>
+<span><span class="co">#&gt; 2             Powder, for solution 50 mg / vial Intravenous</span></span>
+<span><span class="co">#&gt; 3 Injection, solution, concentrate        50 mg Intravenous</span></span>
+<span><span class="co">#&gt; 4 Injection, solution, concentrate        50 mg Intravenous</span></span>
+<span><span class="co">#&gt; 5 Injection, solution, concentrate        20 mg Intravenous</span></span>
+<span><span class="co">#&gt;   fda-application-number generic over-the-counter approved country  source</span></span>
+<span><span class="co">#&gt; 1              NDA020807   false            false     true      US FDA NDC</span></span>
+<span><span class="co">#&gt; 2                          false            false     true  Canada     DPD</span></span>
+<span><span class="co">#&gt; 3                          false            false    false      EU     EMA</span></span>
+<span><span class="co">#&gt; 4                          false            false    false      EU     EMA</span></span>
+<span><span class="co">#&gt; 5                          false            false    false      EU     EMA</span></span>
+<span><span class="co">#&gt;   parent_key</span></span>
+<span><span class="co">#&gt; 1    DB00001</span></span>
+<span><span class="co">#&gt; 2    DB00001</span></span>
+<span><span class="co">#&gt; 3    DB00001</span></span>
+<span><span class="co">#&gt; 4    DB00001</span></span>
+<span><span class="co">#&gt; 5    DB00001</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="references">references<a class="anchor" aria-label="anchor" href="#references"></a>
+</h4>
+<p>A list of data.frames of articles, links and textbooks about drugs or
+CETT data</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">[[</span><span class="st">"references"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "drugs"        "carriers"     "enzymes"      "targets"      "transporters"</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="cett">cett<a class="anchor" aria-label="anchor" href="#cett"></a>
+</h4>
+<p>A list of data.frames contain targets, enzymes, carriers and
+transporters information</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">[[</span><span class="st">"cett"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "carriers"     "enzymes"      "targets"      "transporters"</span></span></code></pre></div>
 </div>
 </div>
-<div id="dataset-contents" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dataset-contents" class="anchor"></a>Dataset Contents</h2>
-<p>The following are the datasets in our package</p>
-<pre><code>#&gt; Loading package: dbdataset</code></pre>
-<div id="htmlwidget-8268d05482dbb116be5c" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8268d05482dbb116be5c">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81"],["AHFS_Codes_Drug","ATC_Codes_Drug","Actions_Carrier_Drug","Actions_Enzyme_Drug","Actions_Target_Drug","Actions_Transporter_Drug","Affected_Organisms_Drug","Articles_Carrier_Drug","Articles_Drug","Articles_Enzyme_Drug","Articles_Target_Drug","Articles_Transporter_Drug","Attachments","Attachments_Carriers","Attachments_Enzymes","Attachments_Targets","Attachments_Transporters","Books_Drug","Calculated_Properties_Drug","Carriers_Drug","Categories_Drug","Classifications_Drug","Dosages_Drug","Drugs","Drugs_Pathway_Drug","Enzymes_Drug","Enzymes_Pathway_Drug","Enzymes_Reactions_Drug","Experimental_Properties_Drug","External_Identifiers_Drug","External_Identifiers_Polypeptide_Carrier_Drug","External_Identifiers_Polypeptide_Enzyme_Drug","External_Identifiers_Polypeptide_Target_Drug","External_Identifiers_Transporter_Drug","External_Links_Drug","Food_Interactions_Drug","GO_Classifiers_Polypeptide_Carrier_Drug","GO_Classifiers_Polypeptide_Target_Drug","GO_Classifiers_Polypeptide_Transporter_Drug","GO_Classifiers_Polypeptides_Enzyme_Drug","Groups_Drug","Interactions_Drug","International_Brands_Drug","Links_Carrier_Drug","Links_Drug","Links_Enzyme_Drug","Links_Target_Drug","Links_Transporter_Drug","Manufacturers_Drug","Mixtures_Drug","PDB_Entries_Drug","PFAMS_Polypeptid_Transporter_Drug","PFAMS_Polypeptide_Carrier_Drug","PFAMS_Polypeptide_Target_Drug","PFAMS_Polypeptides_Enzyme_Drug","Packagers_Drug","Patents_Drug","Pathways_Drug","Pharmacology","Polypeptide_Target_Drug","Polypeptides_Carrier_Drug","Polypeptides_Enzyme_Drug","Polypeptides_Transporter_Drug","Prices_Drug","Products_Drug","Reactions_Drug","SNP_Adverse_Drug_Reactions_Drug","SNP_Effects_Drug","Salts_Drug","Sequences_Drug","Synonyms_Drug","Synonyms_Polypeptide_Carrier_Drug","Synonyms_Polypeptide_Target_Drug","Synonyms_Polypeptide_Transporter_Drug","Synonyms_Polypeptides_Enzyme_Drug","Targets_Drug","Textbooks_Carrier_Drug","Textbooks_Enzyme_Drug","Textbooks_Target_Drug","Textbooks_Transporter_Drug","Transporters_Drug"],["1760x2","4976x10","109x2","653x2","3394x2","338x2","3152x2","635x4","13139x4","5595x4","21775x4","2231x4","424x4","16x4","413x4","101x4","67x4","434x4","276247x4","805x6","87060x3","10303x9","41439x4","13580x15","7438x3","5158x8","15198x2","224x3","6878x4","82974x3","424x3","2365x3","21770x3","1287x3","3088x3","2132x2","1832x3","79214x3","4752x3","8495x3","16136x2","2668185x4","8544x3","110x4","4300x4","848x4","691x4","266x4","5971x4","186945x3","213461x2","409x3","133x3","8328x3","705x3","20499x3","8644x6","3780x4","13580x12","4778x20","82x20","451x20","271x20","11807x5","351991x19","3273x6","113x9","211x9","2315x8","359x3","28381x4","332x2","17979x2","1323x2","2353x2","18780x6","21x4","78x4","107x4","12x4","3050x6"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Item<\/th>\n      <th>dim<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<div class="section level3">
+<h3 id="package-version">Package Version<a class="anchor" aria-label="anchor" href="#package-version"></a>
+</h3>
+<p>The package version will always be the same as the
+<strong>DrugBank</strong> database used.</p>
 </div>
-<div id="dataset-hierarchy" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dataset-hierarchy" class="anchor"></a>Dataset Hierarchy</h2>
-<p>The following illustrates how the datasets are related to each other:</p>
-<div id="htmlwidget-0b49219628b8cbf2deca" style="width:960px;height:960px;" class="radialNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0b49219628b8cbf2deca">{"x":{"root":{"name":"Drugs","children":[{"name":"Groups"},{"name":"Pharmacology"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"},{"name":"Attachments"}]},{"name":"Classification"},{"name":"Calculated Properties"},{"name":"Synonyms"},{"name":"Products"},{"name":"Mixtures"},{"name":"Packagers"},{"name":"Manufacturers"},{"name":"Prices"},{"name":"Categories"},{"name":"Affected Organisms"},{"name":"Dosages"},{"name":"ATC"},{"name":"AHFS"},{"name":"PDB Entries"},{"name":"Patents"},{"name":"international_brands"},{"name":"salts"},{"name":"Interactions","children":[{"name":"Food"},{"name":"Drugs"}]},{"name":"Sequences"},{"name":"Experimental Properties"},{"name":"External Identifiers"},{"name":"External Links"},{"name":"Pathways","children":[{"name":"Drugs"},{"name":"Enzymes"}]},{"name":"Reactions","children":[{"name":"Reactions Enzymes"}]},{"name":"SNP Effects"},{"name":"SNP Adverse DRs"},{"name":"Targets","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"},{"name":"Attachments"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]},{"name":"Enzymes","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"},{"name":"Attachments"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]},{"name":"Carriers","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"},{"name":"Attachments"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]},{"name":"Transporters","children":[{"name":"Actions"},{"name":"References","children":[{"name":"Articles"},{"name":"Books"},{"name":"Links"},{"name":"Attachments"}]},{"name":"Polypeptides","children":[{"name":"External Identifiers"},{"name":"GO Classifiers"},{"name":"PFAMS"},{"name":"Synonyms"}]}]}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"#fff","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
 </div>
   </div>
 
@@ -234,11 +239,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Mohammed Ali.</p>
+  <p></p>
+<p>Developed by Mohammed Ali.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -246,6 +253,8 @@
 
   
 
+
+  
 
   </body>
 </html>
