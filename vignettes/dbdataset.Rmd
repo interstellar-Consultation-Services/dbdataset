@@ -15,9 +15,9 @@ knitr::opts_chunk$set(
 ```
 
 ## Overview
-**dbdataset** is a data package containing different tibbles that constitute the dataset parsed from  [DrugBank](https://www.drugbank.ca). The dataset was extracted from the DrugBank XML database via [dbparser](https://dainanahan.github.io/dbparser/) R package.
+**dbdataset** is a data package containing **dvobject** R object. **dvobject**contains lists of different dataframes of the parsed [DrugBank](https://www.drugbank.ca) database. **dvobject** has been built using [dbparser](https://docs.ropensci.org/dbparser) R package.
 
-The dataset can be used for conveniently exploring and analyzing the contents of the DrugBank database. The dataset is also intended to assist in drug discovery endeavors that plan to make use of the **DrugBank** database.
+**dvobject** can be used for conveniently exploring and analyzing the contents of the DrugBank database. **dvobject** is also intended to assist in drug discovery endeavors that plan to make use of the **DrugBank** database.
 
 Moreover; it also can be used to in Machine Learning in many sub-fields such as:
 
@@ -26,169 +26,64 @@ Moreover; it also can be used to in Machine Learning in many sub-fields such as:
 - Visualization
 
 ### Installation
-As the package size exceeds the limit set by CRAN, it will be hosted on Github only for now. Hence, it could be installed via the following command.
+Although **dvobject** is much smaller that the unparsed DrugBank database size, it still exceeds the limit set by CRAN. So, it will be hosted on Github only for now. Hence, it could be installed via the following command.
 
 ```{r eval=FALSE}
-devtools::install_github("MohammedFCIS/dbdataset")
+devtools::install_github("interstellar-Consultation-Services/dbdataset")
 ```
 
-The datasets will then be available after running the following command:
+The **dvobject** will then be available after running the following command:
 
 ```{r eval=FALSE}
 library(dbdataset)
 ```
 
-Then the pakages will be available to be used as regular *R* object
+Then a **dvobject** called `drugbank` will be available to be used as regular *R* object
+
+### dvobject Structure
+dvobject introduces a unified and compressed format of drugs data. It is an R list object that contains one or more of the following sub-lists:
 
 ```{r}
-head(dbdataset::Articles_Drug)
+names(dbdataset::drugbank)
 ```
+The following is the definition for each sub-list:
+
+#### drugs
+A list of data.frames that contain drugs information (i.e. synonyms, classifications, …) and it is the only mandatory list
 
 ```{r}
-head(dbdataset::Drugs)
+names(dbdataset::drugbank[["drugs"]])
 ```
 
+#### drugs
+A data.frame contains drugs salts information
+
 ```{r}
-head(dbdataset::Drugs_Pathway_Drug)
+head(dbdataset::drugbank[["salts"]], 5)
 ```
-The 74 object names are listed in the next section and can be used immediately as any regular R dataframe.
+
+#### products
+A data.frame of commercially available drugs products in the world
+
+```{r}
+head(dbdataset::drugbank[["products"]], 5)
+```
+
+#### references
+A list of data.frames of articles, links and textbooks about drugs or CETT data
+
+```{r}
+names(dbdataset::drugbank[["references"]])
+```
+
+
+#### cett
+A list of data.frames contain targets, enzymes, carriers and transporters information
+
+```{r}
+names(dbdataset::drugbank[["cett"]])
+```
 
 ### Package Version
 The package version will always be the same as the **DrugBank** database used.
-
-### Naming Convention
-Each data frame is named based on its position in DrugBank's data hierarchy. For example:
-
-- `Drugs`: is the master data frame at the root of the hierarchy that contains the list of all drugs in DrugBank.
-- `Enzymes_Drug`: is the data frame containing the *enzymes* info pertaining to the drugs in the `Drugs` data frame. In other words,
-- `Enzymes:` is a child of `Drug` in the hierarchy (i.e. Drug --> Enzymes).
-- `Enzymes_Pathway_Drug`: is the data frame containing the *enzymes* info pertaining to the *pathways* that the drugs in `Drugs` are involved in (i.e. Drug --> Pathways --> Enzymes).
-
-## Dataset Contents
-The following are the datasets in our package
-```{r echo=FALSE}
-data <- vcdExtra::datasets("dbdataset")
-DT::datatable(data[, c(1,3)])
-```
-
-
-## Dataset Hierarchy
-The following illustrates how the datasets are related to each other:
-
-```{r echo=FALSE, fig.width=10, fig.height=10}
-library(data.tree)
-library(networkD3)
-# search for salts, international-brands
-# Main node
-build_drug_bank_tree <- function() {
-  drug <- Node$new("Drugs")
-  drug$AddChild("Groups")
-  drug$AddChild("Pharmacology")
-  references <- drug$AddChild("References")
-  
-  references$AddChild("Articles")
-  references$AddChild("Books")
-  references$AddChild("Links")
-  references$AddChild("Attachments")
-  
-  drug$AddChild("Classification")
-  drug$AddChild("Calculated Properties")
-  drug$AddChild("Synonyms")
-  drug$AddChild("Products")
-  drug$AddChild("Mixtures")
-  drug$AddChild("Packagers")
-  drug$AddChild("Manufacturers")
-  drug$AddChild("Prices")
-  drug$AddChild("Categories")
-  drug$AddChild("Affected Organisms")
-  drug$AddChild("Dosages")
-  drug$AddChild("ATC")
-  drug$AddChild("AHFS")
-  drug$AddChild("PDB Entries")
-  drug$AddChild("Patents")
-  drug$AddChild("PDB Entries")
-  drug$AddChild("international_brands")
-  drug$AddChild("salts")
-  
-  interactions <- drug$AddChild("Interactions")
-  interactions$AddChild("Food")
-  interactions$AddChild("Drugs")
-  
-  drug$AddChild("Sequences")
-  drug$AddChild("Experimental Properties")
-  drug$AddChild("External Identifiers")
-  drug$AddChild("External Links")
-  
-  pathways <- drug$AddChild("Pathways")
-  pathways$AddChild("Drugs")
-  pathways$AddChild("Enzymes")
-  
-  reactions <- drug$AddChild("Reactions")
-  reactions$AddChild("Reactions Enzymes")
-  
-  drug$AddChild("SNP Effects")
-  drug$AddChild("SNP Adverse DRs")
-  
-  targets <- drug$AddChild("Targets")
-  targets$AddChild("Actions")
-  
-  targets_references <- targets$AddChild("References")
-  targets_references$AddChild("Articles")
-  targets_references$AddChild("Books")
-  targets_references$AddChild("Links")
-  targets_references$AddChild("Attachments")
-  
-  targets_polypeptides <- targets$AddChild("Polypeptides")
-  targets_polypeptides$AddChild("External Identifiers")
-  targets_polypeptides$AddChild("GO Classifiers")
-  targets_polypeptides$AddChild("PFAMS")
-  targets_polypeptides$AddChild("Synonyms")
-  
-  enzymes <- drug$AddChild("Enzymes")
-  enzymes$AddChild("Actions")
-  enzymes_references <- enzymes$AddChild("References")
-  enzymes_references$AddChild("Articles")
-  enzymes_references$AddChild("Books")
-  enzymes_references$AddChild("Links")
-  enzymes_references$AddChild("Attachments")
-  enzymes_polypeptides <- enzymes$AddChild("Polypeptides")
-  enzymes_polypeptides$AddChild("External Identifiers")
-  enzymes_polypeptides$AddChild("GO Classifiers")
-  enzymes_polypeptides$AddChild("PFAMS")
-  enzymes_polypeptides$AddChild("Synonyms")
-  
-  carriers <- drug$AddChild("Carriers")
-  carriers$AddChild("Actions")
-  carriers_references <- carriers$AddChild("References")
-  carriers_references$AddChild("Articles")
-  carriers_references$AddChild("Books")
-  carriers_references$AddChild("Links")
-  carriers_references$AddChild("Attachments")
-  carriers_polypeptides <- carriers$AddChild("Polypeptides")
-  carriers_polypeptides$AddChild("External Identifiers")
-  carriers_polypeptides$AddChild("GO Classifiers")
-  carriers_polypeptides$AddChild("PFAMS")
-  carriers_polypeptides$AddChild("Synonyms")
-  
-  transporters <- drug$AddChild("Transporters")
-  transporters$AddChild("Actions")
-  transporters_references <- transporters$AddChild("References")
-  transporters_references$AddChild("Articles")
-  transporters_references$AddChild("Books")
-  transporters_references$AddChild("Links")
-  transporters_references$AddChild("Attachments")
-  transporters_polypeptides <- transporters$AddChild("Polypeptides")
-  transporters_polypeptides$AddChild("External Identifiers")
-  transporters_polypeptides$AddChild("GO Classifiers")
-  transporters_polypeptides$AddChild("PFAMS")
-  transporters_polypeptides$AddChild("Synonyms")
-  
-  return(drug)
-}
-
-radialNetwork(
-  ToListExplicit(build_drug_bank_tree(), unname = TRUE))
-```
-
-
 

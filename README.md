@@ -6,7 +6,7 @@
 **dbdataset** is a data package containing different tibbles that
 constitute the dataset parsed from [DrugBank](https://www.drugbank.ca).
 The dataset was extracted from the DrugBank XML database via
-[dbparser](https://dainanahan.github.io/dbparser/) R package.
+[dbparser](https://docs.ropensci.org/dbparser) R package.
 
 The dataset can be used for conveniently exploring and analyzing the
 contents of the DrugBank database. The dataset is also intended to
@@ -16,9 +16,9 @@ assist in drug discovery endeavors that plan to make use of the
 Moreover; it also can be used to in Machine Learning in many sub-fields
 such as:
 
--   Natural Language Processing (NLP)
--   Web Scrapping
--   Visualization
+- Natural Language Processing (NLP)
+- Web Scrapping
+- Visualization
 
 ### Installation
 
@@ -38,5 +38,5 @@ library(dbdataset)
 
 ## Used Versions
 
--   dbparser: 1.2.0
--   Drugbank: 5.1.8
+- dbparser: 2.0.1
+- Drugbank: 5.1.10
