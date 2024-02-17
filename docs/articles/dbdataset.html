@@ -149,18 +149,18 @@ classifications, …) and it is the only mandatory list</p>
 <p>A data.frame contains drugs salts information</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">[[</span><span class="st">"salts"</span><span class="op">]</span><span class="op">]</span>, <span class="fl">5</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    drugbank-id                          name       unii  cas-number</span></span>
+<span><span class="co">#&gt;     db_salt_id                          name       unii  cas_number</span></span>
 <span><span class="co">#&gt; 1 DBSALT000105            Leuprolide acetate 37JNS02E7V  74381-53-6</span></span>
 <span><span class="co">#&gt; 2 DBSALT003182           Leuprolide mesylate 8E3C3C493W 944347-41-5</span></span>
 <span><span class="co">#&gt; 3 DBSALT001439            Sermorelin acetate 00IBG87IQW 114466-38-5</span></span>
 <span><span class="co">#&gt; 4 DBSALT000093             Goserelin acetate 6YUU2PV0U8 145781-92-6</span></span>
 <span><span class="co">#&gt; 5 DBSALT001733 Insulin human zinc suspension                       </span></span>
-<span><span class="co">#&gt;                      inchikey average-mass monoisotopic-mass parent_key</span></span>
-<span><span class="co">#&gt; 1 YFDMUNOZURYOCP-XNHQSDQCSA-N     1269.473    1268.666591578    DB00007</span></span>
-<span><span class="co">#&gt; 2 MBIDSOMXPLCOHS-XNHQSDQCSA-N      1305.52    1304.633577372    DB00007</span></span>
-<span><span class="co">#&gt; 3                                     &lt;NA&gt;              &lt;NA&gt;    DB00010</span></span>
-<span><span class="co">#&gt; 4 IKDXDQDKCZPQSZ-JHYYTBFNSA-N    1329.4624    1328.662568858    DB00014</span></span>
-<span><span class="co">#&gt; 5                                     &lt;NA&gt;              &lt;NA&gt;    DB00030</span></span></code></pre></div>
+<span><span class="co">#&gt;                      inchikey average_mass monoisotopic_mass drugbank_id</span></span>
+<span><span class="co">#&gt; 1 YFDMUNOZURYOCP-XNHQSDQCSA-N     1269.473    1268.666591578     DB00007</span></span>
+<span><span class="co">#&gt; 2 MBIDSOMXPLCOHS-XNHQSDQCSA-N      1305.52    1304.633577372     DB00007</span></span>
+<span><span class="co">#&gt; 3                                     &lt;NA&gt;              &lt;NA&gt;     DB00010</span></span>
+<span><span class="co">#&gt; 4 IKDXDQDKCZPQSZ-JHYYTBFNSA-N    1329.4624    1328.662568858     DB00014</span></span>
+<span><span class="co">#&gt; 5                                     &lt;NA&gt;              &lt;NA&gt;     DB00030</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="products">products<a class="anchor" aria-label="anchor" href="#products"></a>
@@ -169,36 +169,36 @@ classifications, …) and it is the only mandatory list</p>
 world</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">dbdataset</span><span class="fu">::</span><span class="va"><a href="../reference/drugbank.html">drugbank</a></span><span class="op">[[</span><span class="st">"products"</span><span class="op">]</span><span class="op">]</span>, <span class="fl">5</span><span class="op">)</span></span>
-<span><span class="co">#&gt;       name               labeller ndc-id ndc-product-code   dpd-id</span></span>
+<span><span class="co">#&gt;       name               labeller ndc_id ndc_product_code   dpd_id</span></span>
 <span><span class="co">#&gt; 1 Refludan                  Bayer               50419-150         </span></span>
 <span><span class="co">#&gt; 2 Refludan                  Bayer                         02240996</span></span>
 <span><span class="co">#&gt; 3 Refludan Celgene Europe Limited                                 </span></span>
 <span><span class="co">#&gt; 4 Refludan Celgene Europe Limited                                 </span></span>
 <span><span class="co">#&gt; 5 Refludan Celgene Europe Limited                                 </span></span>
-<span><span class="co">#&gt;   ema-product-code   ema-ma-number started-marketing-on ended-marketing-on</span></span>
+<span><span class="co">#&gt;   ema_product_code   ema_ma_number started_marketing_on ended_marketing_on</span></span>
 <span><span class="co">#&gt; 1                                            1998-03-06         2013-06-30</span></span>
 <span><span class="co">#&gt; 2                                            2000-01-31         2013-07-26</span></span>
 <span><span class="co">#&gt; 3  EMEA/H/C/000122 EU/1/97/035/001           2016-09-08         2012-07-27</span></span>
 <span><span class="co">#&gt; 4  EMEA/H/C/000122 EU/1/97/035/002           2016-09-08         2012-07-27</span></span>
 <span><span class="co">#&gt; 5  EMEA/H/C/000122 EU/1/97/035/003           2016-09-08         2012-07-27</span></span>
-<span><span class="co">#&gt;                        dosage-form     strength       route</span></span>
+<span><span class="co">#&gt;                        dosage_form     strength       route</span></span>
 <span><span class="co">#&gt; 1                           Powder    50 mg/1mL Intravenous</span></span>
 <span><span class="co">#&gt; 2             Powder, for solution 50 mg / vial Intravenous</span></span>
 <span><span class="co">#&gt; 3 Injection, solution, concentrate        50 mg Intravenous</span></span>
 <span><span class="co">#&gt; 4 Injection, solution, concentrate        50 mg Intravenous</span></span>
 <span><span class="co">#&gt; 5 Injection, solution, concentrate        20 mg Intravenous</span></span>
-<span><span class="co">#&gt;   fda-application-number generic over-the-counter approved country  source</span></span>
+<span><span class="co">#&gt;   fda_application_number generic over_the_counter approved country  source</span></span>
 <span><span class="co">#&gt; 1              NDA020807   false            false     true      US FDA NDC</span></span>
 <span><span class="co">#&gt; 2                          false            false     true  Canada     DPD</span></span>
 <span><span class="co">#&gt; 3                          false            false    false      EU     EMA</span></span>
 <span><span class="co">#&gt; 4                          false            false    false      EU     EMA</span></span>
 <span><span class="co">#&gt; 5                          false            false    false      EU     EMA</span></span>
-<span><span class="co">#&gt;   parent_key</span></span>
-<span><span class="co">#&gt; 1    DB00001</span></span>
-<span><span class="co">#&gt; 2    DB00001</span></span>
-<span><span class="co">#&gt; 3    DB00001</span></span>
-<span><span class="co">#&gt; 4    DB00001</span></span>
-<span><span class="co">#&gt; 5    DB00001</span></span></code></pre></div>
+<span><span class="co">#&gt;   drugbank_id</span></span>
+<span><span class="co">#&gt; 1     DB00001</span></span>
+<span><span class="co">#&gt; 2     DB00001</span></span>
+<span><span class="co">#&gt; 3     DB00001</span></span>
+<span><span class="co">#&gt; 4     DB00001</span></span>
+<span><span class="co">#&gt; 5     DB00001</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="references">references<a class="anchor" aria-label="anchor" href="#references"></a>
