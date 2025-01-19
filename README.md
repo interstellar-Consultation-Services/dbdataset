@@ -39,4 +39,4 @@ library(dbdataset)
 ## Used Versions
 
 - dbparser: 2.0.3
-- Drugbank: 5.1.12
+- Drugbank: 5.1.13
